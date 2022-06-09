@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sample server configuration. -->
+<server client="off">
+  <listeners>
+    <listener connection="tcp" address="127.0.0.1:8080" />
+    <!-- <listener connection="uds" address="@/tmp/senscord" /> -->
+  </listeners>
+
+  <streams>
+    <stream key="pseudo_image_stream.0">
+      <frame buffering="off"/>
+    </stream>
+    <stream key="tofar_color_stream">
+      <frame buffering="off" />
+    </stream>
+    <stream key="tofar_coordinate_stream">
+      <frame buffering="off" />
+    </stream>
+    <stream key="tofar_tof_camera2_stream">
+      <frame buffering="off" />
+    </stream>
+    <stream key="tofar_plane_camera2_stream">
+      <frame buffering="off" />
+    </stream>
+    <stream key="tofar_mesh_camera2_stream">
+      <frame buffering="off" />
+    </stream>
+    <stream key="tofar_hand_camera2_stream">
+      <frame buffering="off" />
+    </stream>
+	<stream key="player_color_stream">
+      <frame buffering="on" num="0" />
+    </stream>
+    <stream key="player_tof_stream">
+      <frame buffering="on" num="0" />
+    </stream>
+
+    <defaults>
+      <frame buffering="on" num="0"/>
+    </defaults>
+  </streams>
+</server>
