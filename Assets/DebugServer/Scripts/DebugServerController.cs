@@ -18,6 +18,12 @@ using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.Android;
 using UnityEngine.UI;
+using TofAr.V0.Body;
+using TofAr.V0.Segmentation;
+using TofAr.V0.Color;
+using TofAr.V0.Face;
+using TofAr.V0.Tof;
+using UnityEngine.SceneManagement;
 
 public class DebugServerController : MonoBehaviour
 {
@@ -32,6 +38,8 @@ public class DebugServerController : MonoBehaviour
     public InputField portInput;
     public Text statusText;
     public TextAsset testJson;
+
+    public GameObject depthViewNotePanel;
 
     private string ipAddress = "";
     private string port = "";
@@ -139,6 +147,11 @@ public class DebugServerController : MonoBehaviour
     void Awake()
     {
         this.titleText.text = $"ToF AR Server : v{TofArManager.Instance.Version}";
+
+        if (depthViewNotePanel != null)
+        {
+            depthViewNotePanel.SetActive(false);
+        }
     }
 
     IEnumerator Start()
@@ -212,7 +225,11 @@ public class DebugServerController : MonoBehaviour
 
     private void OnDestroy()
     {
-        TofArSlamManager.Instance.StopStream();
+        if (TofArSlamManager.Instance != null)
+        {
+            TofArSlamManager.Instance.StopStream();
+        }
+        
         this.StopServer();
     }
 
@@ -315,6 +332,34 @@ public class DebugServerController : MonoBehaviour
 
     }
 
+    public void DepthViewButton()
+    {
+        if (depthViewNotePanel != null)
+        {
+            depthViewNotePanel.SetActive(!depthViewNotePanel.activeSelf);
+        }
+    }
+
+    public void ChangeDepthScene()
+    {
+        TofArBodyManager.Instance?.StopStream();
+        TofArSlamManager.Instance?.StopStream();
+        TofArFaceManager.Instance?.StopStream();
+        TofArSegmentationManager.Instance?.StopStream();
+        TofArColorManager.Instance?.StopStream();
+        TofArTofManager.Instance?.StopStream();
+
+        Destroy(TofArManager.Instance.gameObject);
+        Destroy(TofArColorManager.Instance.gameObject);
+        Destroy(TofArTofManager.Instance.gameObject);
+        Destroy(TofArSlamManager.Instance.gameObject);
+        Destroy(TofArBodyManager.Instance.gameObject);
+        Destroy(TofArSegmentationManager.Instance.gameObject);
+        Destroy(TofArFaceManager.Instance.gameObject);
+
+        SceneManager.LoadSceneAsync("Depth");
+    }
+
     void Update()
     {
         if (!this.isServerRunning)
@@ -394,6 +439,16 @@ public class DebugServerController : MonoBehaviour
 
     private IEnumerator StartServerCoroutine()
     {
+        TofAr.AppLicense.AppLicense appLicense = this.GetComponent<TofAr.AppLicense.AppLicense>();
+
+        if (appLicense != null)
+        {
+            while (!appLicense.GetAgreeState())
+            {
+                yield return null;
+            }
+        }
+
         int success = 1;
 
         while (success != 0)
@@ -409,7 +464,10 @@ public class DebugServerController : MonoBehaviour
         this.isAppStarted = true;
 
         // isRemoteServer flag apply for naitive plgins
-        TofArManager.Instance.SetProperty(new RuntimeSettingsProperty() { runMode = RunMode.Default, isRemoteServer = true });
+        var runtimeSettings = TofArManager.Instance.GetProperty<RuntimeSettingsProperty>();
+        runtimeSettings.runMode = RunMode.Default;
+        runtimeSettings.isRemoteServer = true;
+        TofArManager.Instance.SetProperty(runtimeSettings);
         TofArManager.Logger.WriteLog(LogLevel.Debug, "Update RuntimeSettings isRemoteServer -> true");
 
         OnDebugServerStarted?.Invoke();

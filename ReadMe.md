@@ -1,3 +1,14 @@
+<a name="download"></a>
+# Download the App
+
+Use tools to debug your ToF AR development.  
+You can find the App from the stores below.
+
+[<img alt="Get it on the App Store" src="/Docs/images/App_Store_Badge_US-UK_092917.svg" height="60">](https://apps.apple.com/us/developer/id1601362415)
+&nbsp;&nbsp;&nbsp;&nbsp;
+[<img alt="Get it on Google Play" src="/Docs/images/google-play-badge_us.png" height="70">](https://play.google.com/store/apps/developer?id=Sony+Semiconductor+Solutions+Corporation)
+
+
 <a name="about"></a>
 # ToF AR Server
 

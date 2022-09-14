@@ -1,3 +1,14 @@
+<a name="download"></a>
+# アプリをダウンロード
+
+ツールを使って ToF AR を使った開発のデバッグをしましょう。  
+以下のストアでアプリを見つけることができます。
+
+[<img alt="App Store からダウンロード" src="/Docs/images/App_Store_Badge_JP_100317.svg" height="60">](https://apps.apple.com/jp/developer/id1601362415)
+&nbsp;&nbsp;&nbsp;&nbsp;
+[<img alt="Google Play で手に入れよう" src="/Docs/images/google-play-badge_jp.png" height="68">](https://play.google.com/store/apps/developer?id=Sony+Semiconductor+Solutions+Corporation)
+
+
 <a name="about"></a>
 # ToF AR Server
 

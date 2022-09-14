@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1084808681660766079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7449246624767950190}
+  - component: {fileID: 2197432366308685831}
+  m_Layer: 0
+  m_Name: SettingsPrefabManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7449246624767950190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084808681660766079}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2197432366308685831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084808681660766079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 509f0de9e923a6a409ad4464d4cbc500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PanelPrefab: {fileID: 6198554019751055769, guid: d2a10336c65a94b3f9d6f221efb26f9d,
+    type: 3}
+  LinePrefab: {fileID: 2075288848679003816, guid: 2d206b10f668c4628bf086fd80a3e3a0,
+    type: 3}
+  ItemNestMenuPrefab: {fileID: 0}
+  ItemButtonPrefab: {fileID: 0}
+  ItemDropdownPrefab: {fileID: 7008322449065123806, guid: 2005a84a0cfeecf48b04b2a1c604f1c6,
+    type: 3}
+  ItemInputFieldPrefab: {fileID: 0}
+  ItemSliderPrefab: {fileID: 0}
+  ItemTextPrefab: {fileID: 0}
+  ItemTogglePrefab: {fileID: 0}
+  ItemToggleMultiPrefab: {fileID: 0}
+  DropdownDialogPrefab: {fileID: 7520370751148591841, guid: e84f911f3a7355549975a17edebdb7af,
+    type: 3}
+  DropdownOptionPrefab: {fileID: 7474050807182596644, guid: 5d2841cf54761da4dbd00faf90d16054,
+    type: 3}
