@@ -45,6 +45,7 @@ public class DebugServerController : MonoBehaviour
     private string port = "";
 
     private string locale;
+    private DateTime configFileLastWriteTime = DateTime.MinValue;
 
     [Serializable]
     class ServerStatus
@@ -179,13 +180,7 @@ public class DebugServerController : MonoBehaviour
             yield return RequestUserPermission(Permission.Camera);
         }
 
-
-
-        this.UpdateServerSettingsFile();
-
         locale = GetLocale();
-
-
 
         yield return StartServerCoroutine();
     }
@@ -198,27 +193,34 @@ public class DebugServerController : MonoBehaviour
             var filePath = $"{Application.temporaryCachePath}{Path.DirectorySeparatorChar}TofAr{Path.DirectorySeparatorChar}senscord_server.xml";
             if (System.IO.File.Exists(filePath))
             {
-                var doc = XDocument.Load(filePath);
-
-                var instances = doc.Root.Elements("listeners");
+                var lastWriteTime = File.GetLastWriteTime(filePath);
+                // file has been modified since last time
+                if (configFileLastWriteTime < lastWriteTime)
                 {
-                    if (instances.Count() < 2)
-                    {
-                        var newListener = new XElement("listener");
-                        newListener.Add(new XAttribute("connection", "tcp"));
-                        newListener.Add(new XAttribute("address", this.ipAddress + ":" + this.port));
-                        doc.Root.Element("listeners").Add(newListener);
-                        instances = doc.Root.Elements("listeners");
-                    }
-                    var instance = instances.FirstOrDefault();
-                    // debug server listening
-                    instance.SetAttributeValue("address", "127.0.0.1:8080");
-                    instance = instances.LastOrDefault();
-                    // get own ip address
-                    instance.SetAttributeValue("address", this.ipAddress + ":" + this.port);
+                    var doc = XDocument.Load(filePath);
 
+                    var instances = doc.Root.Elements("listeners");
+                    {
+                        if (instances.Count() < 2)
+                        {
+                            var newListener = new XElement("listener");
+                            newListener.Add(new XAttribute("connection", "tcp"));
+                            newListener.Add(new XAttribute("address", this.ipAddress + ":" + this.port));
+                            doc.Root.Element("listeners").Add(newListener);
+                            instances = doc.Root.Elements("listeners");
+                        }
+                        var instance = instances.FirstOrDefault();
+                        // debug server listening
+                        instance.SetAttributeValue("address", "127.0.0.1:8080");
+                        instance = instances.LastOrDefault();
+                        // get own ip address
+                        instance.SetAttributeValue("address", this.ipAddress + ":" + this.port);
+
+                    }
+                    doc.Save(filePath);
+                    configFileLastWriteTime = File.GetLastWriteTime(filePath);
                 }
-                doc.Save(filePath);
+                
             }
         }
     }
@@ -401,7 +403,6 @@ public class DebugServerController : MonoBehaviour
         }
         else
         {
-            this.UpdateServerSettingsFile();
             this.StartServer();
         }
     }
@@ -450,10 +451,9 @@ public class DebugServerController : MonoBehaviour
         }
 
         int success = 1;
-
         while (success != 0)
         {
-
+            UpdateServerSettingsFile();
             success = StartTofArServer();
             yield return null;
         }

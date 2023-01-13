@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 2c2ba2b5140e14847b5cd9fbe83ae19b, type: 3}
+  m_Texture: {fileID: 2800000, guid: 9fc5b20a210b8486ca8d7e85427b3c0a, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 05d9199c440639347bcd4e7b2ea5cd79, type: 3}
+  m_Texture: {fileID: 2800000, guid: b2b24372abc364185a9162528d6bc7b2, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 6039316863974438105}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99995726
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -660,7 +660,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00009930172}
+  m_AnchoredPosition: {x: 0, y: 0.0007140153}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2416346634121485378
@@ -897,15 +897,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6198554019751055769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a9ca12308e5fe544a918effc7617e11, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b9b43a5088b644aa80467e193307f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Btn: {fileID: 0}
   PanelObj: {fileID: 0}
   FadeTime: 0.3
   WaitSetup: 0
-  HeightOffsetPortrait: 200
-  HeightOffsetLandscape: 40
+  HeightOffset: 300
 --- !u!1 &6542960621521261483
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,7 +993,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6542960621521261483}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a334204ed86e2694b8f7cd3c724ba23b, type: 3}
+  m_Script: {fileID: 11500000, guid: fd01ba8bc243648deba11d85711a3259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TapColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 0.49803922}

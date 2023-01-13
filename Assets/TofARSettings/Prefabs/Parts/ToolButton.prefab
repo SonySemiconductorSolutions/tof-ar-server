@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 55d10cc9e40d13349a828f8611a49f30, type: 3}
+  m_Texture: {fileID: 2800000, guid: b2b24372abc364185a9162528d6bc7b2, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7076094743422736486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a334204ed86e2694b8f7cd3c724ba23b, type: 3}
+  m_Script: {fileID: 11500000, guid: fd01ba8bc243648deba11d85711a3259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TapColor: {r: 0.25882354, g: 0.12941177, b: 0.043137256, a: 1}
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7076094744350854974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bb1ca12e1fc5734bb91f60950f843d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c0fe1ec84c7247eaa127dc6a685c3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onOff: 0
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: afd54b7aea769f74f9d6e66aa63537d4, type: 3}
+  m_Texture: {fileID: 2800000, guid: 30af377a9fa574f7f93cf6b970911f67, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0

@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7ac3b98e59a753541a2e633de5fb02e0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4a646cfaefada4d2bbb8b51ae83f8989, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1772294626202509352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a334204ed86e2694b8f7cd3c724ba23b, type: 3}
+  m_Script: {fileID: 11500000, guid: fd01ba8bc243648deba11d85711a3259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TapColor: {r: 0.78125, g: 0.78125, b: 0.78125, a: 1}
@@ -416,7 +416,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7008322449065123806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 435d4f7577bb631449ecbcce14a2b77a, type: 3}
+  m_Script: {fileID: 11500000, guid: 944305e600e2e44a9b7fc1fccd46db43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AddColon: 1
