@@ -11,7 +11,7 @@
 <a name="download"></a>
 # Download the App
 
-Use tools to debug your ToF AR development.  
+Install ToF AR Server on your mobile device and then connect the device to Unity Editor running on your PC to debug your ToF AR applications.  
 Download ToF AR Server now from App Store and Google Play and try it out!
 
 [<img alt="Get it on the App Store" src="/Docs/images/App_Store_Badge_US-UK_092917.svg" height="60">](https://apps.apple.com/us/developer/id1601362415)
@@ -35,7 +35,10 @@ Please see [the ToF AR Site on Developer World](https://developer.sony.com/devel
 
 ToF AR Server is a program to debug applications using ToF AR.
 
-You can debug your application executed on Unity Editor using the data captured from the ToF camera, when ToF AR Server is executed on a smartphone.
+Install and run ToF AR Server on your mobile device to fetch data from the ToF camera and other live inputs, and then connect the device to Unity Editor running on your PC to debug your ToF AR applications running in Unity Editor.
+This way, it is not always necessary to create a new build, making it much faster and easier to debug and troubleshoot your applications.
+
+Make sure to use the same ToF AR version of both the Unity Editor toolkit and ToF AR Server.
 
 
 <a name="environment"></a>
@@ -61,8 +64,8 @@ For known issues and platform limitations, see [Restrictions and limitations](ht
 
 Operation was verified in the following environment:
 
-* Unity Version  : 2021.3.11f1
-* ToF AR Version : 1.2.0
+* Unity Version  : 2021.3.18f1
+* ToF AR Version : 1.3.0
 
 
 <a name="notes"></a>

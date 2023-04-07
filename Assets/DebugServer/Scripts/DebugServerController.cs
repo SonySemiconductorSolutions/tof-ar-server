@@ -1,7 +1,7 @@
 ﻿/*
  * SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
  *
- * Copyright 2018,2019,2020,2021 Sony Semiconductor Solutions Corporation.
+ * Copyright 2018,2019,2020,2021,2022,2023 Sony Semiconductor Solutions Corporation.
  *
  */
 using TofAr.V0;
@@ -81,7 +81,11 @@ public class DebugServerController : MonoBehaviour
     {
         string output = "127.0.0.1";
 
-        foreach (NetworkInterface item in NetworkInterface.GetAllNetworkInterfaces())
+        string fallbackAddress = null;
+
+        var interfaces = NetworkInterface.GetAllNetworkInterfaces();
+
+        foreach (NetworkInterface item in interfaces)
         {
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
             NetworkInterfaceType _type1 = NetworkInterfaceType.Wireless80211;
@@ -93,15 +97,25 @@ public class DebugServerController : MonoBehaviour
                 foreach (UnicastIPAddressInformation ip in item.GetIPProperties().UnicastAddresses)
                 {
                     string ipStr = ip.Address.ToString();
-
                     if (ip.Address.AddressFamily == AddressFamily.InterNetwork && !ipStr.Equals("127.0.0.1"))
                     {
-                        output = ip.Address.ToString();
+                        if (System.Text.RegularExpressions.Regex.Match(ipStr, @"^\b169\.254\.\d{1,3}\.\d{1,3}\b").Success)
+                        {
+                            fallbackAddress = ipStr;
+                            continue;
+                        }
+                        return ipStr;
                     }
 
                 }
             }
         }
+
+        if (fallbackAddress != null)
+        {
+            return fallbackAddress;
+        }
+
         return output;
     }
 

@@ -28,9 +28,7 @@ Structured light 方式など、ToF 以外のDepthセンサでもToF ARは動作
 
 ToF AR Serverのビルドと実行には、この ToF AR の他に、UnityとToFセンサを搭載した対応スマートフォンが必要です。
 
-ToF AR のパッケージや開発ドキュメント、ToF ARを使ったアプリケーションソフト、対応スマートフォンのリストにつきましては、
-
-Developer World の[ToF AR サイト](https://developer.sony.com/ja/develop/tof-ar)をご覧ください。
+ToF AR のパッケージや開発ドキュメント、ToF ARを使ったアプリケーションソフト、対応スマートフォンのリストにつきましては、Developer World の[ToF AR サイト](https://developer.sony.com/ja/develop/tof-ar)をご覧ください。
 
 
 <a name="overview"></a>
@@ -38,7 +36,11 @@ Developer World の[ToF AR サイト](https://developer.sony.com/ja/develop/tof-
 
 ToF AR Serverは、ToF ARを用いたアプリケーションをデバッグするためのプログラムです。
 
-ToF AR Serverをスマートフォン上で実行すると、ToFカメラから取得したデータを用いて、Unity Editor上で実行したアプリケーションのデバッグを行うことが出来ます。
+ToF AR Server は Android/iOS向けのアプリケーション開発用のツールで、Unityエディター上でのプロジェクト実行中に、スマホのRGBやDepth入力をUnityに接続することができます。
+
+ToF ARを使ったアプリの開発時にToF AR Serverを使う事で、アプリを毎回ビルドしてデバイスに転送することなく、PC上での動作確認が可能となります。
+
+Unity Editor上で使用しているToF ARのバージョンとToF AR Serverで使用されているToF ARのバージョンは、同じバージョンにする必要があります。
 
 
 <a name="environment"></a>
@@ -62,8 +64,8 @@ ToF AR Serverの使い方については、[ToF AR user manual](https://develope
 
 動作検証は、下記の環境で行っています。
 
-* Unity Version  : 2021.3.11f1
-* ToF AR Version : 1.2.0
+* Unity Version  : 2021.3.18f1
+* ToF AR Version : 1.3.0
 
 
 <a name="notes"></a>

@@ -51,6 +51,7 @@ Assets/Plugins/Android/*
 !Assets/Plugins/Android/launcherTemplate.gradle
 !Assets/Plugins/Android/gradleTemplate.properties
 !Assets/Plugins/Android/DebugServerActivity-release.aar
+!Assets/Plugins/Android/baseProjectTemplate.gradle
 
 Assets/license_3rdpartynotice.txt*
 Assets/link.xml*
