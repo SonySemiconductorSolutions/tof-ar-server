@@ -1,7 +1,7 @@
 ﻿/*
  * SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
  *
- * Copyright 2022 Sony Semiconductor Solutions Corporation.
+ * Copyright 2022,2023 Sony Semiconductor Solutions Corporation.
  *
  */
 
@@ -9,16 +9,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using TofAr.V0;
 
-[RequireComponent(typeof(Text))]
-public class JsonContentsLoader : MonoBehaviour
+namespace TofArServer
 {
-    private Text jsonValuesOutput;
-
-    void Start()
+    [RequireComponent(typeof(Text))]
+    public class JsonContentsLoader : MonoBehaviour
     {
-        jsonValuesOutput = GetComponent<Text>();
-        DeviceCapabilityProperty capability = TofArManager.Instance.GetProperty<DeviceCapabilityProperty>();
-        jsonValuesOutput.text = capability?.deviceAttributesString ?? "Json text load failed";
+        private Text jsonValuesOutput;
+
+        void Start()
+        {
+            jsonValuesOutput = GetComponent<Text>();
+            DeviceCapabilityProperty capability = TofArManager.Instance.GetProperty<DeviceCapabilityProperty>();
+            jsonValuesOutput.text = capability?.deviceAttributesString ?? "Json text load failed";
+        }
     }
 }
 

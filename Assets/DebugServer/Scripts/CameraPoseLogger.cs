@@ -7,16 +7,19 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CameraPoseLogger : MonoBehaviour
+namespace TofArServer
 {
-    public Text message;
-
-    void Update()
+    public class CameraPoseLogger : MonoBehaviour
     {
-        var t = Camera.main.transform;
-        var euler = t.rotation.eulerAngles;
-        this.message.text = $"Pos: x:{t.position.x,8:0.000} y:{t.position.y,8:0.000} z:{t.position.z,8:0.000} " + 
-                            $"Rot: x:{euler.x,8:0.000} y:{euler.y,8:0.000} z:{euler.z,8:0.000}\n" +
-                            $"Accel: x:{Input.acceleration.x, 8:0.000} y:{Input.acceleration.y, 8:0.000} z:{Input.acceleration.z, 8:0.000}";
+        public Text message;
+
+        void Update()
+        {
+            var t = Camera.main.transform;
+            var euler = t.rotation.eulerAngles;
+            this.message.text = $"Pos: x:{t.position.x,8:0.000} y:{t.position.y,8:0.000} z:{t.position.z,8:0.000}\n" +
+                                $"Rot: x:{euler.x,8:0.000} y:{euler.y,8:0.000} z:{euler.z,8:0.000}\n" +
+                                $"Accel: x:{Input.acceleration.x,8:0.000} y:{Input.acceleration.y,8:0.000} z:{Input.acceleration.z,8:0.000}";
+        }
     }
 }

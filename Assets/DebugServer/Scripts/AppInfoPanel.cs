@@ -1,50 +1,51 @@
 ﻿/*
  * SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
  *
- * Copyright 2022 Sony Semiconductor Solutions Corporation.
+ * Copyright 2022,2023 Sony Semiconductor Solutions Corporation.
  *
  */
 
-using System.Collections;
-using System.Collections.Generic;
 using TofAr.V0;
 using UnityEngine;
 using TofArSettings;
 
-public class AppInfoPanel : MonoBehaviour
+namespace TofArServer
 {
-    private VersionInfo versionInfo;
-    private JsonInfo jsonInfo;
-    private DeviceInfo deviceInfo;
-
-    private void Awake()
+    public class AppInfoPanel : MonoBehaviour
     {
-        versionInfo = GetComponentInChildren<VersionInfo>();
-        jsonInfo = GetComponentInChildren<JsonInfo>();
-        deviceInfo = GetComponentInChildren<DeviceInfo>();
-    }
+        private VersionInfo versionInfo;
+        private JsonInfo jsonInfo;
+        private DeviceInfo deviceInfo;
 
-    /// <summary>
-    /// Set each information to Text
-    /// </summary>
-    public void SetInfo()
-    {
-        if (versionInfo)
+        private void Awake()
         {
-            string version = TofArManager.Instance.Version;
-            versionInfo.SetText(version);
+            versionInfo = GetComponentInChildren<VersionInfo>();
+            jsonInfo = GetComponentInChildren<JsonInfo>();
+            deviceInfo = GetComponentInChildren<DeviceInfo>();
         }
 
-        if (jsonInfo)
+        /// <summary>
+        /// Set each information to Text
+        /// </summary>
+        public void SetInfo()
         {
-            ConfigSource configSource = TofArManager.Instance.GetConfigSource();
-            jsonInfo.SetText(configSource);
-        }
+            if (versionInfo)
+            {
+                string version = TofArManager.Instance.Version;
+                versionInfo.SetText(version);
+            }
 
-        if (deviceInfo)
-        {
-            string modelName = TofArManager.Instance.GetProperty<DeviceCapabilityProperty>().modelName;
-            deviceInfo.SetText(modelName);
+            if (jsonInfo)
+            {
+                ConfigSource configSource = TofArManager.Instance.GetConfigSource();
+                jsonInfo.SetText(configSource);
+            }
+
+            if (deviceInfo)
+            {
+                string modelName = TofArManager.Instance.GetProperty<DeviceCapabilityProperty>().modelName;
+                deviceInfo.SetText(modelName);
+            }
         }
     }
 }

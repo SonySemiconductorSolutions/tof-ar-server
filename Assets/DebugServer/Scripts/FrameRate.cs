@@ -1,31 +1,34 @@
 ﻿/*
  * SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
  *
- * Copyright 2018,2019,2020,2021 Sony Semiconductor Solutions Corporation.
+ * Copyright 2018,2019,2020,2021,2023 Sony Semiconductor Solutions Corporation.
  *
  */
 using TofAr.V0.Tof;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FrameRate : MonoBehaviour
+namespace TofArServer
 {
-    public Text txtFrameRate;
-    public Slider sliderFrameRate;
-
-    private void Start()
+    public class FrameRate : MonoBehaviour
     {
-        OnEndDragging();
-    }
+        public Text txtFrameRate;
+        public Slider sliderFrameRate;
 
-    public void ValueChanged(float val)
-    {
-        txtFrameRate.text = sliderFrameRate.value.ToString("N0");
-    }
+        private void Start()
+        {
+            OnEndDragging();
+        }
 
-    public void OnEndDragging()
-    {
-        txtFrameRate.text = sliderFrameRate.value.ToString("N0");
-        TofArTofManager.Instance.SetProperty<FrameRateProperty>(new FrameRateProperty() { desiredFrameRate = sliderFrameRate.value });
+        public void ValueChanged(float val)
+        {
+            txtFrameRate.text = sliderFrameRate.value.ToString("N0");
+        }
+
+        public void OnEndDragging()
+        {
+            txtFrameRate.text = sliderFrameRate.value.ToString("N0");
+            TofArTofManager.Instance.SetProperty<FrameRateProperty>(new FrameRateProperty() { desiredFrameRate = sliderFrameRate.value });
+        }
     }
 }

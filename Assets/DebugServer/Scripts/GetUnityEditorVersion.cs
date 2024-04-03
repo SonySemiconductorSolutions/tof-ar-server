@@ -1,20 +1,21 @@
 ﻿/*
  * SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
  *
- * Copyright 2018,2019,2020,2021 Sony Semiconductor Solutions Corporation.
+ * Copyright 2018,2019,2020,2021,2023 Sony Semiconductor Solutions Corporation.
  *
  */
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GetUnityEditorVersion : MonoBehaviour
+namespace TofArServer
 {
-    public Text unityVersionText;
-
-    void Start()
+    public class GetUnityEditorVersion : MonoBehaviour
     {
-        unityVersionText.text = "Unity Editor version: " + Application.unityVersion;
+        public Text unityVersionText;
+
+        void Start()
+        {
+            unityVersionText.text = "Unity Editor version: " + Application.unityVersion;
+        }
     }
-
-
 }
