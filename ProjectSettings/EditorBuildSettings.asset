@@ -11,4 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/DebugServer/Scenes/Depth.unity
     guid: b1752d315277bc34f8f0ed6e0dc5dfee
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: d645f13b8f2b74c748a9f484a678349e,
+      type: 3}

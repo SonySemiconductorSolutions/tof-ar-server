@@ -1,7 +1,7 @@
 ﻿/*
  * SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
  *
- * Copyright 2023 Sony Semiconductor Solutions Corporation.
+ * Copyright 2023,2024 Sony Semiconductor Solutions Corporation.
  *
  */
 
@@ -17,19 +17,19 @@ namespace TofArServer
 
         private DeviceOrientation callbackCurrentOrientation = DeviceOrientation.Unknown;
 
-        private void OnEnable()
-        {
-            TofArManager.OnDeviceOrientationUpdated += OnTofArDeviceRotated;
-        }
-
-        private void OnDisable()
-        {
-            TofArManager.OnDeviceOrientationUpdated -= OnTofArDeviceRotated;
-        }
-
         private void Start()
         {
             txt = GetComponent<Text>();
+            callbackCurrentOrientation = TofArManager.Instance?.GetProperty<DeviceOrientationsProperty>()?.deviceOrientation ?? DeviceOrientation.Unknown;
+
+            TofArManager.Instance.preInternalSessionStart.AddListener(() =>
+            {
+                TofArManager.OnDeviceOrientationUpdated += OnTofArDeviceRotated;
+            });
+            TofArManager.Instance.postInternalSessionStop.AddListener(() =>
+            {
+                TofArManager.OnDeviceOrientationUpdated -= OnTofArDeviceRotated;
+            });
         }
 
         private void Update()
